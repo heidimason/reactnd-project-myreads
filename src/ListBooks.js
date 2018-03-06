@@ -9,7 +9,9 @@ class ListBooks extends Component {
         const { showingBooks } = this.props,
              { selectedShelf } = this.state
 
-		return (
+        // console.log(showingBooks)
+
+        return (
              <div>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
@@ -18,7 +20,7 @@ class ListBooks extends Component {
             					<div className="book">
               						<div className="book-top">
                 						<div className="book-cover"
-                                            style={{ backgroundImage: 'url(' + book.img + ')' }}>
+                                            style={{ backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}>
                                         </div>
 
                 						<div className="book-shelf-changer">
@@ -35,7 +37,7 @@ class ListBooks extends Component {
 
               						<div className="book-title">{book.title}</div>
 
-              						<div className="book-authors">{book.author}</div>
+              						<div className="book-authors">{book.authors}</div>
             					</div>
           					</li>
                         ))}

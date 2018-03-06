@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import ListBooks from './ListBooks'
 
 class SearchBooks extends Component {
 	render() {
+		const { books } = this.props
+
 		return (
 			<div className="search-books">
             	<div className="search-books-bar">
@@ -22,7 +25,9 @@ class SearchBooks extends Component {
             	</div>
 
 	            <div className="search-books-results">
-	            	<ol className="books-grid"></ol>
+	            	<ListBooks
+	            		showingBooks={books}
+	            	/>
 	            </div>
           	</div>
 		)
