@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
+import * as strMethods from './utils/strMethods'
 
 class ListShelves extends Component {
 	render() {
@@ -14,7 +15,7 @@ class ListShelves extends Component {
 	              			<h2 className="bookshelf-title">{bookshelf.name}</h2>
 
 	                        <ListBooks
-                                showingBooks={books.filter( book => book.shelf === bookshelf.name )}
+                                showingBooks={books.filter( book => strMethods.camelize( bookshelf.name.toLowerCase() ) === book.shelf )}
                             />
 	                    </li>
                     ))}
