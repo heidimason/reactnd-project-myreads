@@ -25,7 +25,7 @@ class ShelfChanger extends Component {
                     <option value="read">Read</option>
                     <option value="none">None</option>
               	</select>
-                <p>{shelf}</p>
+                <p>{console.log(shelf)}</p>
             </div>
 		)
 	}
