@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
+import ShelfChanger from './ShelfChanger'
 
 class ListBooks extends Component {
-	state = {
-    	selectedShelf: 'none'
-	}
-
 	render() {
-        const { showingBooks } = this.props,
-             { selectedShelf } = this.state
+        const { showingBooks } = this.props
 
         // console.log(showingBooks)
 
         return (
-             <div>
+            <div>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
 						{showingBooks.map( (book, index) => (
@@ -23,16 +19,9 @@ class ListBooks extends Component {
                                             style={{ backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}>
                                         </div>
 
-                						<div className="book-shelf-changer">
-                  							<select value={selectedShelf}
-                                                onChange={() => { console.log(selectedShelf) }}>
-				                                <option value="none" disabled>Move to...</option>
-				                                <option value="currentlyReading">Currently Reading</option>
-				                                <option value="wantToRead">Want to Read</option>
-				                                <option value="read">Read</option>
-				                                <option value="none">None</option>
-			                              	</select>
-			                            </div>
+                						<ShelfChanger
+                                            showingBooks={showingBooks}
+                                        />
               						</div>
 
               						<div className="book-title">{book.title}</div>

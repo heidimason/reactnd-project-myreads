@@ -30,7 +30,7 @@ class SearchBooks extends Component {
 
             showingBooks = books.filter( (book) => match.test(book.title) || match.test(book.author) );
         } else {
-            showingBooks = books;
+            showingBooks = [];
         }
 
 		return (
