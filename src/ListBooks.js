@@ -3,7 +3,7 @@ import ShelfChanger from './ShelfChanger'
 
 class ListBooks extends Component {
 	render() {
-        const { bookshelf, showingBooks } = this.props
+        const { bookshelf, showingBooks, onMoveBook } = this.props
 
         // console.log(showingBooks)
 
@@ -22,6 +22,7 @@ class ListBooks extends Component {
                 						<ShelfChanger
                                             showingBooks={showingBooks}
                                             bookshelf={bookshelf}
+                                            onMoveBook={ (newShelf) => onMoveBook(book, newShelf)}
                                         />
               						</div>
 

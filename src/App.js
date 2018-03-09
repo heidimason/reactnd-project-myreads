@@ -10,8 +10,8 @@ class BooksApp extends Component {
         books: []
     }
 
-    // Get all books from API
-    componentDidMount() {
+    // Get all books from API and populate books array
+    getAllBooks() {
         BooksAPI.getAll().then( (books) => {
             this.setState({ books })
         }).catch( () =>
@@ -19,11 +19,19 @@ class BooksApp extends Component {
         )
     }
 
-    // moveBook = (book, shelf) => {
-    //     BooksAPI.update().then( ((shelf, book) => {
-    //         this.setState({ shelf })
-    //     })
-    // }
+    // Get all books immediately after component is inserted into DOM
+    componentDidMount() {
+        this.getAllBooks()
+    }
+
+    // Update book's shelf in API and repopulate books array
+    updateShelf = (book, shelf) => {
+        BooksAPI.update(book, shelf).then( () => {
+            this.getAllBooks()
+        }).catch( () =>
+            alert('Error updating book!')
+        )
+    }
 
     render() {
         let { bookshelves } = this.props
@@ -46,7 +54,7 @@ class BooksApp extends Component {
                         <ListShelves
                             books={books}
                             bookshelves={bookshelves}
-                            // onChangeShelf={this.moveBook}
+                            onMoveBook={this.updateShelf}
                         />
                     </div>
                 )}/>
@@ -55,7 +63,7 @@ class BooksApp extends Component {
                     <SearchBooks
                         books={books}
                         bookshelves={bookshelves}
-                        // onChangeShelf={this.moveBook}
+                        onMoveBook={this.updateShelf}
                     />
                 )}/>
             </div>
