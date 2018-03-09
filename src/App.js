@@ -26,7 +26,14 @@ class BooksApp extends Component {
     // }
 
     render() {
-        const { books } = this.state
+        let { bookshelves } = this.props
+            const { books } = this.state
+
+        bookshelves = [
+            { name: 'Currently Reading' },
+            { name: 'Want to Read' },
+            { name: 'Read' }
+        ]
 
         return (
             <div className="app">
@@ -37,13 +44,8 @@ class BooksApp extends Component {
                         </div>
 
                         <ListShelves
-                            bookshelves={[
-                                { name: 'Currently Reading' },
-                                { name: 'Want to Read' },
-                                { name: 'Read' }
-                            ]}
-
                             books={books}
+                            bookshelves={bookshelves}
                             // onChangeShelf={this.moveBook}
                         />
                     </div>
@@ -52,6 +54,7 @@ class BooksApp extends Component {
                 <Route path="/search" render={ () => (
                     <SearchBooks
                         books={books}
+                        bookshelves={bookshelves}
                         // onChangeShelf={this.moveBook}
                     />
                 )}/>

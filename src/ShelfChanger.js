@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class ShelfChanger extends Component {
 	state = {
-        // Shelf value is initially whatever is in Books API
+        // Shelf value is initially whatever it is in Books API
         shelf: this.props.bookshelf
     }
 
