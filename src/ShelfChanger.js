@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 
 class ShelfChanger extends Component {
 	state = {
-        shelf: ''
+        // Shelf value is initially whatever is in Books API
+        shelf: this.props.bookshelf
     }
 
-    updateShelf = (shelf) => {
+    updateShelf = (newShelf) => {
         this.setState({
-            shelf: shelf
+            shelf: newShelf
         })
     }
 

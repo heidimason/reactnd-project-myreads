@@ -15,6 +15,7 @@ class ListShelves extends Component {
 	              			<h2 className="bookshelf-title">{bookshelf.name}</h2>
 
 	                        <ListBooks
+                                bookshelf={strMethods.camelize( bookshelf.name.toLowerCase() )}
                                 showingBooks={books.filter( book => strMethods.camelize( bookshelf.name.toLowerCase() ) === book.shelf )}
                             />
 	                    </li>
