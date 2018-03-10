@@ -5,7 +5,7 @@ class ListBooks extends Component {
 	render() {
         const { bookshelf, showingBooks, onMoveBook } = this.props
 
-        // console.log(showingBooks)
+        console.log(bookshelf)
 
         return (
             <div>

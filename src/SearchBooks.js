@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
+// import * as strMethods from './utils/strMethods'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 
@@ -16,8 +17,8 @@ class SearchBooks extends Component {
     }
 
 	render() {
-		const { books } = this.props,
-			  { query } = this.state
+		const { bookshelves, books, onMoveBook } = this.props,
+			  			   			   { query } = this.state
 
 		let showingBooks
 
@@ -28,7 +29,7 @@ class SearchBooks extends Component {
             // i = ignore case i.e. Not case sensitive
             const match = new RegExp(escapeRegExp (query), 'i');
 
-            showingBooks = books.filter( (book) => match.test(book.title) || match.test(book.author) );
+            showingBooks = books.filter( (book) => match.test(book.title) || match.test(book.authors) );
         } else {
             showingBooks = [];
         }
@@ -59,7 +60,9 @@ class SearchBooks extends Component {
 
 	            <div className="search-books-results">
 	            	<ListBooks
+	            		bookshelf={bookshelves.map( bookshelf => bookshelf.name)}
 	            		showingBooks={showingBooks}
+	            		onMoveBook={onMoveBook}
 	            	/>
 	            </div>
           	</div>
