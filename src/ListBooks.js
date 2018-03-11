@@ -15,9 +15,20 @@ class ListBooks extends Component {
           					<li key={index}>
             					<div className="book">
               						<div className="book-top">
-                						<div className="book-cover"
-                                            style={{ backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}>
-                                        </div>
+                                        {/* If there is a book thumbnail */}
+                                        {book.imageLinks &&
+                    						<div className="book-cover"
+                                                style={{ backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}
+                                                alt={book.title}>
+                                            </div>
+                                        }
+
+                                        {/* If there is no book thumbnail */}
+                                        {!book.imageLinks &&
+                                            <div className="book-cover"
+                                                alt={book.title}>
+                                            </div>
+                                        }
 
                 						<ShelfChanger
                                             showingBooks={showingBooks}
@@ -28,7 +39,10 @@ class ListBooks extends Component {
 
               						<div className="book-title">{book.title}</div>
 
-              						<div className="book-authors">{book.authors}</div>
+                                    {/* If there is a book author */}
+                                    {book.imageLinks &&
+          						        <div className="book-authors">{book.authors}</div>
+                                    }
             					</div>
           					</li>
                         ))}
