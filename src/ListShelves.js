@@ -5,7 +5,7 @@ import * as strMethods from './utils/strMethods'
 
 class ListShelves extends Component {
 	render() {
-        const { bookshelves, books, onMoveBook } = this.props
+        const { bookshelves, shelvedBooks, onMoveBook } = this.props
 
 		return (
 			<div>
@@ -16,7 +16,7 @@ class ListShelves extends Component {
 
 	                        <ListBooks
                                 bookshelf={strMethods.camelize( bookshelf.name.toLowerCase() )}
-                                showingBooks={books.filter( book => strMethods.camelize( bookshelf.name.toLowerCase() ) === book.shelf )}
+                                showingBooks={shelvedBooks.filter( book => strMethods.camelize( bookshelf.name.toLowerCase() ) === book.shelf )}
                                 onMoveBook={onMoveBook}
                             />
 	                    </li>

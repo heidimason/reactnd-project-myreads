@@ -7,24 +7,24 @@ import SearchBooks from './SearchBooks'
 
 class BooksApp extends Component {
     state = {
-        books: []
+        shelvedBooks: []
     }
 
-    // Get all books from API and populate books array
+    // Get all books on a shelf and populate shelvedBooks array
     getAllBooks() {
-        BooksAPI.getAll().then( (books) => {
-            this.setState({ books })
+        BooksAPI.getAll().then( (shelvedBooks) => {
+            this.setState({ shelvedBooks })
         }).catch( () =>
             alert('Error getting books!')
         )
     }
 
-    // Get all books immediately after component is inserted into DOM
+    // Get all shelved books immediately after component is inserted into DOM
     componentDidMount() {
         this.getAllBooks()
     }
 
-    // Update book's shelf in API and repopulate books array
+    // Update book's shelf and repopulate shelvedBooks array
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf).then( () => {
             this.getAllBooks()
@@ -34,8 +34,8 @@ class BooksApp extends Component {
     }
 
     render() {
-        let { bookshelves } = this.props
-            const { books } = this.state
+        const { shelvedBooks } = this.state
+           let { bookshelves } = this.props
 
         bookshelves = [
             { name: 'Currently Reading' },
@@ -52,7 +52,7 @@ class BooksApp extends Component {
                         </div>
 
                         <ListShelves
-                            books={books}
+                            shelvedBooks={shelvedBooks}
                             bookshelves={bookshelves}
                             onMoveBook={this.updateShelf}
                         />
@@ -61,7 +61,6 @@ class BooksApp extends Component {
 
                 <Route path="/search" render={ () => (
                     <SearchBooks
-                        books={books}
                         bookshelves={bookshelves}
                         onMoveBook={this.updateShelf}
                     />
