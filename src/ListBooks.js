@@ -40,8 +40,8 @@ class ListBooks extends Component {
               						<div className="book-title">{book.title}</div>
 
                                     {/* If there is a book author */}
-                                    {book.imageLinks &&
-          						        <div className="book-authors">{book.authors}</div>
+                                    {book.authors &&
+          						        <div className="book-authors">{book.authors.join(', ')}</div>
                                     }
             					</div>
           					</li>
