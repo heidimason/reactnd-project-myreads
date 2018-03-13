@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './utils/BooksAPI'
 import ListBooks from './ListBooks'
-// import * as strMethods from './utils/strMethods'
 import sortBy from 'sort-by'
 
 class SearchBooks extends Component {
@@ -18,7 +17,7 @@ class SearchBooks extends Component {
             noResults: null
         })
 
-        if (query.target.value !== '') {
+        if (query.target.value !== '') { // So search results are not shown when all of the text is deleted out of search input box
             // Reset displayed books from previous search
             this.setState({
                 queriedBooks: [],
@@ -44,14 +43,11 @@ class SearchBooks extends Component {
     }
 
 	render() {
-		const { bookshelves, onMoveBook } = this.props,
-			  { queriedBooks, noResults } = this.state
+		const { queriedBooks, noResults } = this.state,
+                           { onMoveBook } = this.props
 
         // Display books in alphabetical order by title
 		queriedBooks.sort(sortBy('title'))
-
-		const bookshelfName = bookshelves.map(bookshelf => bookshelf.name)
-		// console.log(bookshelfName)
 
 		return (
 			<div className="search-books">
@@ -80,7 +76,6 @@ class SearchBooks extends Component {
 
 	            <div className="search-books-results">
 	            	<ListBooks
-	            		bookshelf={queriedBooks.filter( book => book.shelf === bookshelfName )}
 	            		showingBooks={queriedBooks}
 	            		onMoveBook={onMoveBook}
 	            	/>

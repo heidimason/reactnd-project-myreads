@@ -2,21 +2,25 @@ import React, { Component } from 'react'
 
 class ShelfChanger extends Component {
 	state = {
-        // Shelf value is initially whatever it is in Books API
-        shelf: this.props.bookshelf
+        shelf: ''
     }
 
     moveBook = (event) => {
-        this.props.onMoveBook(event.target.value);
+        this.props.onMoveBook(event.target.value)
+
+        this.setState({
+            shelf: event.target.value
+        })
     }
 
 	render() {
-		const { shelf } = this.state
+        const { bookshelf } = this.props,
+                  { shelf } = this.state
 
 		return (
 			<div className="book-shelf-changer">
 				<select
-                    value={shelf}
+                    value={shelf ? shelf : bookshelf}
                     onChange={this.moveBook}>
                     <option disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
