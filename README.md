@@ -9,6 +9,22 @@ To get started right away:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
+##
+
+To use:
+
+* This is a basic books app.  The home page displays 3 shelves: Currently Reading, Want to Read, and Read. You can move a book to another shelf by clicking on the green button with the down arrow and selecting the shelf name.
+
+* To search for more books to add to the shelves, go to the bottom right of the page and click on the green add button. Type in a search term (e.g. title, author, subject).
+
+### Important Note: ###
+The search from BooksAPI is limited to a particular set of search terms.
+You can find these search terms here:
+https://github.com/heidimason/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+
+However, remember that the BooksAPI.search method DOES search by title or author.
+So, don't worry if you don't find a specific author or title. Every search is limited by search terms.
+
 ## Project Structure
 ```bash
 ├── CONTRIBUTING.md
