@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import * as BooksAPI from './utils/BooksAPI'
+import * as BooksAPI from '../utils/BooksAPI'
 import ListBooks from './ListBooks'
 import sortBy from 'sort-by'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
-import * as strMethods from './utils/strMethods'
+import * as strMethods from '../utils/strMethods'
 
 function ListShelves (props) {
     const { bookshelves, shelvedBooks, onMoveBook } = props
