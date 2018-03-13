@@ -41,7 +41,7 @@ class ListBooks extends Component {
 
                                     {/* If there is a book author */}
                                     {book.authors &&
-          						        <div className="book-authors">{book.authors.join(', ')}</div>
+          						        <div className="book-authors">{book.authors.map( (author) => author + '\n' )}</div>
                                     }
             					</div>
           					</li>
