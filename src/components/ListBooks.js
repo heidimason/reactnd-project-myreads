@@ -30,7 +30,7 @@ function ListBooks (props) {
             						<ShelfChanger
                                         bookshelf={book.shelf}
                                         showingBooks={showingBooks}
-                                        onMoveBook={ (newShelf) => onMoveBook(book, newShelf)}
+                                        onMoveBook={ (shelf) => onMoveBook(book, shelf) }
                                     />
           						</div>
 

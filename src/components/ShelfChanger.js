@@ -2,25 +2,25 @@ import React, { Component } from 'react'
 
 class ShelfChanger extends Component {
 	state = {
-        shelf: ''
+        newShelf: ''
     }
 
     moveBook = (event) => {
         this.props.onMoveBook(event.target.value)
 
         this.setState({
-            shelf: event.target.value
+            newShelf: event.target.value
         })
     }
 
 	render() {
         const { bookshelf } = this.props,
-                  { shelf } = this.state
+               { newShelf } = this.state
 
 		return (
 			<div className="book-shelf-changer">
 				<select
-                    value={shelf ? shelf : bookshelf}
+                    value={newShelf ? newShelf : bookshelf}
                     onChange={this.moveBook}>
                     <option disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
