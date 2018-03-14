@@ -18,14 +18,8 @@ class SearchBooks extends Component {
             noResults: null
         })
 
-        if (query.target.value !== '') {
-            // Reset results from previous search
-            this.setState({
-                queriedBooks: [],
-                noResults: null
-            })
-
-            BooksAPI.search(query.target.value).then( (results) => {
+        BooksAPI.search(query.target.value).then( (results) => {
+            if (query.target.value !== '') {
                 if (results.length) {
                     Promise.all(results.map( (bookId) => {
                         return BooksAPI.get(bookId.id)
@@ -39,8 +33,12 @@ class SearchBooks extends Component {
                         noResults: 'No results matched your search'
                     })
                 }
-            })
-        }
+            } else {
+                console.log('No search term entered')
+            }
+        }).catch( () =>
+            alert('Error searching books!')
+        )
     }
 
 	render() {
@@ -60,8 +58,7 @@ class SearchBooks extends Component {
               		<div className="search-books-input-wrapper">
                 		<DebounceInput type="text"
                 			placeholder="Search by title or author"
-                            minLength={2}
-                            debounceTimeout={300}
+                            debounceTimeout={600}
                 			onChange={this.updateQuery}
                 		/>
               		</div>
