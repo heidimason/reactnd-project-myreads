@@ -180,3 +180,14 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+.pg-not-found {
+  padding-right: 30px;
+  padding-left: 30px;
+  text-align: center;
+}
+
+.pg-not-found a {
+  margin-right: auto;
+  margin-left: auto;
+}
