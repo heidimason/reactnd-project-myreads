@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from '../utils/BooksAPI'
 import ListBooks from './ListBooks'
 import sortBy from 'sort-by'
+import { DebounceInput } from 'react-debounce-input'
 
 class SearchBooks extends Component {
 	state = {
@@ -11,14 +12,14 @@ class SearchBooks extends Component {
 	}
 
 	updateQuery = (query) => {
-        // Reset displayed books from previous search
+        // Reset results from previous search
         this.setState({
             queriedBooks: [],
             noResults: null
         })
 
-        if (query.target.value !== '') { // So search results are not shown when all of the text is deleted out of search input box
-            // Reset displayed books from previous search
+        if (query.target.value !== '') {
+            // Reset results from previous search
             this.setState({
                 queriedBooks: [],
                 noResults: null
@@ -28,7 +29,7 @@ class SearchBooks extends Component {
                 if (results.length) {
                     Promise.all(results.map( (bookId) => {
                         return BooksAPI.get(bookId.id)
-                    })).then((queriedBooks) => {
+                    })).then( (queriedBooks) => {
                         this.setState({
                             queriedBooks: queriedBooks
                         })
@@ -57,8 +58,10 @@ class SearchBooks extends Component {
               		</Link>
 
               		<div className="search-books-input-wrapper">
-                		<input type="text"
+                		<DebounceInput type="text"
                 			placeholder="Search by title or author"
+                            minLength={2}
+                            debounceTimeout={300}
                 			onChange={this.updateQuery}
                 		/>
               		</div>
