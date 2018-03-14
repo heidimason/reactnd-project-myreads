@@ -12,20 +12,11 @@ function ListBooks (props) {
       					<li key={index}>
         					<div className="book">
           						<div className="book-top">
-                                    {/* If there is a book thumbnail */}
-                                    {book.imageLinks &&
-                						<div className="book-cover"
-                                            style={{ backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}
-                                            alt={book.title}>
-                                        </div>
-                                    }
+            						<div className="book-cover"
+                                        style={{ backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? `${book.imageLinks.thumbnail}` : `http://via.placeholder.com/128x193?text=No%20Cover`})` }}
+                                        alt={book.title}>
+                                    </div>
 
-                                    {/* If there is no book thumbnail */}
-                                    {!book.imageLinks &&
-                                        <div className="book-cover"
-                                            alt={book.title}>
-                                        </div>
-                                    }
 
             						<ShelfChanger
                                         bookshelf={book.shelf}
