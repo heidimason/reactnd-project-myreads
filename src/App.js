@@ -13,9 +13,9 @@ class BooksApp extends Component {
 
     // Get all books on a shelf and populate shelvedBooks array
     getAllBooks() {
-        BooksAPI.getAll().then( (shelvedBooks) => {
+        BooksAPI.getAll().then( shelvedBooks =>
             this.setState({ shelvedBooks })
-        }).catch( () =>
+        ).catch( () =>
             alert('Error getting books!')
         )
     }
@@ -27,9 +27,9 @@ class BooksApp extends Component {
 
     // Update book's shelf and repopulate shelvedBooks array
     updateShelf = (book, shelf) => {
-        BooksAPI.update(book, shelf).then( () => {
+        BooksAPI.update(book, shelf).then( () =>
             this.getAllBooks()
-        }).catch( () =>
+        ).catch( () =>
             alert('Error updating book!')
         )
     }

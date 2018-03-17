@@ -5,7 +5,7 @@ class ShelfChanger extends Component {
         newShelf: ''
     }
 
-    moveBook = (event) => {
+    moveBook = event => {
         this.props.onMoveBook(event.target.value)
 
         this.setState({

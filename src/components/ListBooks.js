@@ -21,7 +21,7 @@ function ListBooks (props) {
             						<ShelfChanger
                                         bookshelf={book.shelf}
                                         showingBooks={showingBooks}
-                                        onMoveBook={ (shelf) => onMoveBook(book, shelf) }
+                                        onMoveBook={ shelf => onMoveBook(book, shelf) }
                                     />
           						</div>
 
@@ -29,7 +29,7 @@ function ListBooks (props) {
 
                                 {/* If there is a book author */}
                                 {book.authors &&
-      						        <div className="book-authors">{book.authors.map( (author) => author + '\n' )}</div>
+      						        <div className="book-authors">{book.authors.map( author => author + '\n' )}</div>
                                 }
         					</div>
       					</li>

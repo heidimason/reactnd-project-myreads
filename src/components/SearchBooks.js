@@ -11,19 +11,19 @@ class SearchBooks extends Component {
         noResults: null
 	}
 
-	updateQuery = (query) => {
+	updateQuery = query => {
         // Reset results from previous search
         this.setState({
             queriedBooks: [],
             noResults: null
         })
 
-        BooksAPI.search(query.target.value).then( (results) => {
+        BooksAPI.search(query.target.value).then( results => {
             if (query.target.value !== '') {
                 if (results.length) {
-                    Promise.all(results.map( (bookId) => {
+                    Promise.all(results.map( bookId => {
                         return BooksAPI.get(bookId.id)
-                    })).then( (queriedBooks) => {
+                    })).then( queriedBooks => {
                         this.setState({
                             queriedBooks: queriedBooks
                         })
