@@ -27,23 +27,34 @@ So, don't worry if you don't find a specific author or title. Every search is li
 
 ## Project Structure
 ```bash
+├── .gitignore
 ├── CONTRIBUTING.md
 ├── README.md
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms to use with the app.
+├── package-lock.json # npm package manager file.
 ├── package.json # npm package manager file.
 ├── public
 │   ├── favicon.ico # React Icon.
 │   └── index.html
 └── src
-    ├── App.css
-    ├── App.js # This is the root of the app.
-    ├── App.test.js # Used for testing. Provided with Create React App.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    ├── components
+    │   ├── App.js # This is the root of the app.
+    │   ├── ListBooks.js
+    │   ├── ListShelves.js
+    │   ├── PageNotFound.js
+    │   ├── SearchBooks.js
+    │   └── ShelfChanger.js
+    ├── css
+    │   ├── App.css # Page and component styles.
+    │   └── index.css # Global styles.
     ├── icons
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
-    ├── index.css # Global styles.
+    ├── utils
+    │   ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    │   └── helpers.js
+    ├── App.test.js # Used for testing. Provided with Create React App.
     └── index.js # This is used for DOM rendering only.
 ```
 
