@@ -61,7 +61,21 @@ class BooksApp extends Component {
                         </div>
                     )}/>
 
-                    <Route path="/search" render={ () => (
+                    <Route exact path="/books" render={ () => (
+                        <div className="list-books">
+                            <div className="list-books-title">
+                                <h1>MyReads</h1>
+                            </div>
+
+                            <ListShelves
+                                shelvedBooks={shelvedBooks}
+                                bookshelves={bookshelves}
+                                onMoveBook={this.updateShelf}
+                            />
+                        </div>
+                    )}/>
+
+                    <Route exact path="/books/search" render={ () => (
                         <SearchBooks
                             onMoveBook={this.updateShelf}
                         />
