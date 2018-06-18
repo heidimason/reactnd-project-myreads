@@ -28,7 +28,6 @@ So, don't worry if you don't find a specific author or title. Every search is li
 ## Project Structure
 ```bash
 ├── .gitignore
-├── CONTRIBUTING.md
 ├── README.md
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms to use with the app.
 ├── package-lock.json # npm package manager file.
