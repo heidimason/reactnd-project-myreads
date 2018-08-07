@@ -61,7 +61,7 @@ class BooksApp extends Component {
                         </div>
                     )}/>
 
-                    <Route exact path="/books" render={ () => (
+                    <Route exact path="/myreads" render={ () => (
                         <div className="list-books">
                             <div className="list-books-title">
                                 <h1>MyReads</h1>
@@ -75,7 +75,7 @@ class BooksApp extends Component {
                         </div>
                     )}/>
 
-                    <Route exact path="/books/search" render={ () => (
+                    <Route exact path="/myreads/search" render={ () => (
                         <SearchBooks
                             onMoveBook={this.updateShelf}
                         />
