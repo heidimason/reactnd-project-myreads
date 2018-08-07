@@ -51,7 +51,7 @@ class SearchBooks extends Component {
 		return (
 			<div className="search-books">
             	<div className="search-books-bar">
-              		<Link to="/books"
+              		<Link to="/myreads"
               			className="close-search">Close
               		</Link>
 

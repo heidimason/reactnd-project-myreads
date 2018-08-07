@@ -22,7 +22,7 @@ function ListShelves (props) {
             </ul>
 
             <div className="open-search">
-                <Link to="/books/search">Add a book</Link>
+                <Link to="/myreads/search">Add a book</Link>
             </div>
       	</div>
 	)

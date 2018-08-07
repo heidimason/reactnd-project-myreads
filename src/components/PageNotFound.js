@@ -6,7 +6,7 @@ function PageNotFound (props) {
 		<div className="pg-not-found">
 			<h1>Looks like you took a wrong turn!</h1>
 
-			<Link to="/books">Take me home!</Link>
+			<Link to="/myreads">Take me home!</Link>
 		</div>
 	)
 }
