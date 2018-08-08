@@ -64,7 +64,9 @@ class SearchBooks extends Component {
               		</div>
             	</div>
 
-                <p className="error-no-results">{noResults}</p>
+                { noResults &&
+                    <p className="error-no-results">{noResults}</p>
+                }
 
 	            <div className="search-books-results">
 	            	<ListBooks
