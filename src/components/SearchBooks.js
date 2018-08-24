@@ -21,6 +21,8 @@ class SearchBooks extends Component {
         BooksAPI.search(query.target.value).then( results => {
             if (query.target.value !== '') {
                 if (results.length) {
+                    // More info on Promise.all(iterable):
+                    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Methods
                     Promise.all(results.map( bookId => {
                         return BooksAPI.get(bookId.id)
                     })).then( queriedBooks => {
