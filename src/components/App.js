@@ -47,39 +47,51 @@ class BooksApp extends Component {
         return (
             <div className="app">
                 <Switch>
-                    <Route exact path="/" render={ () => (
-                        <div className="list-books">
-                            <div className="list-books-title">
-                                <h1>MyReads</h1>
-                            </div>
+                    <Route
+                        exact
+                        path="/"
+                        render={ () => (
+                            <div className="list-books">
+                                <div className="list-books-title">
+                                    <h1>MyReads</h1>
+                                </div>
 
-                            <ListShelves
-                                shelvedBooks={shelvedBooks}
-                                bookshelves={bookshelves}
+                                <ListShelves
+                                    shelvedBooks={shelvedBooks}
+                                    bookshelves={bookshelves}
+                                    onMoveBook={this.updateShelf}
+                                />
+                            </div>
+                        )}
+                    />
+
+                    <Route
+                        exact
+                        path="/myreads"
+                        render={ () => (
+                            <div className="list-books">
+                                <div className="list-books-title">
+                                    <h1>MyReads</h1>
+                                </div>
+
+                                <ListShelves
+                                    shelvedBooks={shelvedBooks}
+                                    bookshelves={bookshelves}
+                                    onMoveBook={this.updateShelf}
+                                />
+                            </div>
+                        )}
+                    />
+
+                    <Route
+                        exact
+                        path="/myreads/search"
+                        render={ () => (
+                            <SearchBooks
                                 onMoveBook={this.updateShelf}
                             />
-                        </div>
-                    )}/>
-
-                    <Route exact path="/myreads" render={ () => (
-                        <div className="list-books">
-                            <div className="list-books-title">
-                                <h1>MyReads</h1>
-                            </div>
-
-                            <ListShelves
-                                shelvedBooks={shelvedBooks}
-                                bookshelves={bookshelves}
-                                onMoveBook={this.updateShelf}
-                            />
-                        </div>
-                    )}/>
-
-                    <Route exact path="/myreads/search" render={ () => (
-                        <SearchBooks
-                            onMoveBook={this.updateShelf}
-                        />
-                    )}/>
+                        )}
+                    />
 
                     <Route component={PageNotFound}/>
                 </Switch>
