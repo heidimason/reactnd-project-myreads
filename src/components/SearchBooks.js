@@ -4,9 +4,11 @@ import * as BooksAPI from '../utils/BooksAPI'
 import ListBooks from './ListBooks'
 import sortBy from 'sort-by'
 import { DebounceInput } from 'react-debounce-input'
+import LoadingAnimation from './Mui/Progress/circular'
 
 class SearchBooks extends Component {
 	state = {
+        loading: false,
 		queriedBooks: [],
         noResults: null
 	}
@@ -20,6 +22,10 @@ class SearchBooks extends Component {
 
         BooksAPI.search(query.target.value).then( results => {
             if (query.target.value !== '') {
+                this.setState({
+                    loading: true
+                })
+
                 if (results.length) {
                     // More info on Promise.all(iterable):
                     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Methods
@@ -27,11 +33,13 @@ class SearchBooks extends Component {
                         return BooksAPI.get(bookId.id)
                     })).then( queriedBooks => {
                         this.setState({
+                            loading: false,
                             queriedBooks: queriedBooks
                         })
                     })
                 } else {
                     this.setState({
+                        loading: false,
                         noResults: 'No results matched your search'
                     })
                 }
@@ -44,8 +52,8 @@ class SearchBooks extends Component {
     }
 
 	render() {
-		const { queriedBooks, noResults } = this.state,
-                           { onMoveBook } = this.props
+		const { queriedBooks, noResults, loading } = this.state,
+                                    { onMoveBook } = this.props
 
         // Display books in alphabetical order by title
 		queriedBooks.sort(sortBy('title'))
@@ -65,6 +73,10 @@ class SearchBooks extends Component {
                 		/>
               		</div>
             	</div>
+
+                { loading &&
+                  <LoadingAnimation />
+                }
 
                 { noResults &&
                     <p className="error-no-results">{noResults}</p>
