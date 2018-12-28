@@ -13,9 +13,9 @@ To get started right away:
 
 To use:
 
-* This is a basic books app.  The home page displays 3 shelves: Currently Reading, Want to Read, and Read. You can move a book to another shelf by clicking on the green button with the down arrow and selecting the shelf name.
+* This is a basic books app.  The home page displays 3 shelves: Currently Reading, Want to Read, and Read. You can move a book to another shelf by clicking on the button with the down arrow and selecting the shelf name.
 
-* To search for more books to add to the shelves, go to the bottom right of the page and click on the green add button. Type in a search term (e.g. title, author, subject).
+* To search for more books to add to the shelves, go to the bottom right of the page and click on the add button. Type in a search term (e.g. title, author, subject).
 
 ### Important Note: ###
 The search from BooksAPI is limited to a particular set of search terms.
