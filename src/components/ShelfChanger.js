@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import DropDownMenu from 'material-ui/DropDownMenu'
+import MenuItem from 'material-ui/MenuItem'
 
 class ShelfChanger extends Component {
 	state = {
@@ -19,15 +21,29 @@ class ShelfChanger extends Component {
 
 		return (
 			<div className="book-shelf-changer">
-				<select
+                <DropDownMenu
                     value={newShelf ? newShelf : bookshelf}
-                    onChange={this.moveBook}>
-                    <option disabled>Move to...</option>
-                    <option value="currentlyReading">Currently Reading</option>
-                    <option value="wantToRead">Want to Read</option>
-                    <option value="read">Read</option>
-                    <option value="none">None</option>
-              	</select>
+                    onChange={this.moveBook}
+                    className="book-shelf-changer-select"
+                    autoWidth={true}>
+
+                    <MenuItem>
+                        <option value="currentlyReading">Currently Reading</option>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <option value="wantToRead">Want to Read</option>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <option value="read">Read</option>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <option value="none">None</option>
+                    </MenuItem>
+
+                </DropDownMenu>
             </div>
 		)
 	}
