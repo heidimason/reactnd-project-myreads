@@ -15,11 +15,7 @@ body, .app {
   background: black;
   text-align: center;
 }
-@media screen and (min-width: 768px) {
-  .list-books-title {
-    background: linear-gradient(to right, black, white);
-  }
-}
+
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
@@ -170,6 +166,10 @@ body, .app {
   height: 100%;
   opacity: 0;
   cursor: pointer;
+}
+.current-shelf {
+  cursor: initial;
+  opacity: 0.35;
 }
 
 /* book cover */
