@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
+import { camelize } from '../utils/helpers'
 
 class ShelfChanger extends Component {
 	state = {
@@ -19,6 +20,15 @@ class ShelfChanger extends Component {
         const { bookshelf } = this.props,
                { newShelf } = this.state
 
+        let { menuItems } = this.props
+
+        menuItems = [
+            { name: 'Currently Reading' },
+            { name: 'Want to Read' },
+            { name: 'Read' },
+            { name: 'None' }
+        ]
+
 		return (
 			<div className="book-shelf-changer">
                 <DropDownMenu
@@ -26,23 +36,14 @@ class ShelfChanger extends Component {
                     onChange={this.moveBook}
                     className="book-shelf-changer-select"
                     autoWidth={true}>
-
-                    <MenuItem>
-                        <option value="currentlyReading">Currently Reading</option>
-                    </MenuItem>
-
-                    <MenuItem>
-                        <option value="wantToRead">Want to Read</option>
-                    </MenuItem>
-
-                    <MenuItem>
-                        <option value="read">Read</option>
-                    </MenuItem>
-
-                    <MenuItem>
-                        <option value="none">None</option>
-                    </MenuItem>
-
+                    {menuItems.map( (menuItem, index) => (
+                        <MenuItem key={index}>
+                            <option
+                                value={ camelize(menuItem.name) }
+                                className={bookshelf === camelize(menuItem.name) ? 'current-shelf' : ''}>{menuItem.name}
+                            </option>
+                        </MenuItem>
+                    ))}
                 </DropDownMenu>
             </div>
 		)

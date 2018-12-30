@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
-import * as helpers from '../utils/helpers'
+import { camelize } from '../utils/helpers'
 
 function ListShelves (props) {
     const { bookshelves, shelvedBooks, onMoveBook } = props
@@ -14,7 +14,7 @@ function ListShelves (props) {
               			<h2 className="bookshelf-title">{bookshelf.name}</h2>
 
                         <ListBooks
-                            showingBooks={shelvedBooks.filter( book => helpers.camelize( bookshelf.name.toLowerCase() ) === book.shelf )}
+                            showingBooks={shelvedBooks.filter( book => camelize( bookshelf.name) === book.shelf )}
                             onMoveBook={onMoveBook}
                         />
                     </li>
