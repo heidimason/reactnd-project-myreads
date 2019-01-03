@@ -106,6 +106,8 @@ body, .app {
 
 .error-no-results {
   text-align: center;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 /* books grid */
