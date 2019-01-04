@@ -6,10 +6,10 @@
 
 ```bash
 # install all project dependencies
-`npm i`
+npm i
 
 # start the development server with hot reload at localhost:3000
-`npm start`
+npm start
 
 ```
 
@@ -57,7 +57,7 @@
 
 ## Backend Server
 
-To simplify the development process, Udacity provided a backend server for me to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods I needed to perform necessary operations on the backend:
+The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)
