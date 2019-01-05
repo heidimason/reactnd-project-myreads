@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import * as BooksAPI from '../utils/BooksAPI'
 import '../css/App.css'
 import ListShelves from './ListShelves'
@@ -48,55 +48,57 @@ class BooksApp extends Component {
         return (
             <div className="app">
                 <MuiThemeProvider>
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            render={ () => (
-                                <div className="list-books">
-                                    <div className="list-books-title">
-                                        <h1>MyReads</h1>
-                                    </div>
+                    <BrowserRouter>
+                        <Switch>
+                            <Route
+                                exact
+                                path="/"
+                                render={ () => (
+                                    <div className="list-books">
+                                        <div className="list-books-title">
+                                            <h1>MyReads</h1>
+                                        </div>
 
-                                    <ListShelves
-                                        shelvedBooks={shelvedBooks}
-                                        bookshelves={bookshelves}
+                                        <ListShelves
+                                            shelvedBooks={shelvedBooks}
+                                            bookshelves={bookshelves}
+                                            onMoveBook={this.updateShelf}
+                                        />
+                                    </div>
+                                )}
+                            />
+
+                            <Route
+                                exact
+                                path="/myreads"
+                                render={ () => (
+                                    <div className="list-books">
+                                        <div className="list-books-title">
+                                            <h1>MyReads</h1>
+                                        </div>
+
+                                        <ListShelves
+                                            shelvedBooks={shelvedBooks}
+                                            bookshelves={bookshelves}
+                                            onMoveBook={this.updateShelf}
+                                        />
+                                    </div>
+                                )}
+                            />
+
+                            <Route
+                                exact
+                                path="/myreads/search"
+                                render={ () => (
+                                    <SearchBooks
                                         onMoveBook={this.updateShelf}
                                     />
-                                </div>
-                            )}
-                        />
+                                )}
+                            />
 
-                        <Route
-                            exact
-                            path="/myreads"
-                            render={ () => (
-                                <div className="list-books">
-                                    <div className="list-books-title">
-                                        <h1>MyReads</h1>
-                                    </div>
-
-                                    <ListShelves
-                                        shelvedBooks={shelvedBooks}
-                                        bookshelves={bookshelves}
-                                        onMoveBook={this.updateShelf}
-                                    />
-                                </div>
-                            )}
-                        />
-
-                        <Route
-                            exact
-                            path="/myreads/search"
-                            render={ () => (
-                                <SearchBooks
-                                    onMoveBook={this.updateShelf}
-                                />
-                            )}
-                        />
-
-                        <Route component={PageNotFound}/>
-                    </Switch>
+                            <Route component={PageNotFound}/>
+                        </Switch>
+                    </BrowserRouter>
                 </MuiThemeProvider>
             </div>
         )
