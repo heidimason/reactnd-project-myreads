@@ -27,7 +27,7 @@ function ListBooks (props) {
 
           						<div className="book-title">{book.title}</div>
 
-                                {/* If there is a book author */}
+                                { /* If there is a book author */ }
                                 {book.authors &&
       						        <div className="book-authors">{book.authors.map( author => author + '\n' )}</div>
                                 }
