@@ -26,14 +26,21 @@ npm start
 │   └── index.html
 └── src
 	├── components
-	│   └── Mui
-	│   	└── Progress
-	│   		└── circular.js
+	│   └── Mui/Progress
+	│   	└── circular.js
+	│   └── __snapshots__
+	│   		└── ListBooks.test.js.snap
+	│   		└── ListShelves.test.js.snap
+	│   		└── SearchBooks.test.js.snap
 	│   ├── App.js # Root of the app.
+	│   ├── App.test.js # Used for testing. Provided with Create React App.
 	│   ├── ListBooks.js
+	│   ├── ListBooks.test.js # Used for testing.
 	│   ├── ListShelves.js
+	│   ├── ListShelves.test.js # Used for testing.
 	│   ├── PageNotFound.js
 	│   ├── SearchBooks.js
+	│   ├── SearchBooks.test.js # Used for testing.
 	│   └── ShelfChanger.js
 	├── css
 	│   ├── App.css # Page and component styles.
@@ -45,14 +52,14 @@ npm start
 	├── utils
 	│   ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
 	│   └── helpers.js
-	├── App.test.js # Used for testing. Provided with Create React App.
-	└── index.js # Used for DOM rendering only.
+	├── index.js # Used for DOM rendering only.
+	└── setupTests.js # Used for testing.
 ├── .gitignore
 ├── .htaccess # Used for the deployment server
-├── package-lock.json # npm package manager file.
-├── package.json # npm package manager file.
 ├── README.md
-└── SEARCH_TERMS.md # The whitelisted short collection of available search terms to use with the app.
+├── SEARCH_TERMS.md # The whitelisted short collection of available search terms to use with the app.
+├── package-lock.json # npm package manager file.
+└── package.json # npm package manager file.
 ```
 
 ## Backend Server
