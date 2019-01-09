@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
-import { camelize } from '../utils/helpers'
+import { camelize, isSafari } from '../utils/helpers'
 
 class ShelfChanger extends Component {
 	state = {
@@ -31,20 +31,34 @@ class ShelfChanger extends Component {
 
 		return (
 			<div className="book-shelf-changer">
-                <DropDownMenu
-                    value={newShelf ? newShelf : bookshelf}
-                    onChange={this.moveBook}
-                    className="book-shelf-changer-select"
-                    autoWidth={true}>
-                    {menuItems.map( (menuItem, index) => (
-                        <MenuItem key={index}>
-                            <option
-                                value={ camelize(menuItem.name) }
-                                className={bookshelf === camelize(menuItem.name) ? 'current-shelf' : ''}>{menuItem.name}
-                            </option>
-                        </MenuItem>
-                    ))}
-                </DropDownMenu>
+                { isSafari ?
+                    <select
+                        value={newShelf ? newShelf : bookshelf}
+                        onChange={this.moveBook}
+                        className="book-shelf-changer-select">
+                            {menuItems.map( (menuItem, index) => (
+                                <option
+                                    value={ camelize(menuItem.name) }>{menuItem.name}
+                                </option>
+                            ))}
+                    </select>
+                    :
+                    <DropDownMenu
+                        value={newShelf ? newShelf : bookshelf}
+                        onChange={this.moveBook}
+                        className="book-shelf-changer-select"
+                        autoWidth={true}>
+                        {menuItems.map( (menuItem, index) => (
+                            <MenuItem key={index}>
+                                <option
+                                    value={ camelize(menuItem.name) }
+                                    className={bookshelf === camelize(menuItem.name) ? 'current-shelf' : ''}>{menuItem.name}
+                                </option>
+                            </MenuItem>
+                        ))}
+                    </DropDownMenu>
+
+                }
             </div>
 		)
 	}
