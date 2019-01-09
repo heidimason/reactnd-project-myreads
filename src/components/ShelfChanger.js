@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
-import { camelize, isSafari } from '../utils/helpers'
+import { camelize, isSafari, isFirefox } from '../utils/helpers'
 
 class ShelfChanger extends Component {
 	state = {
@@ -52,12 +52,13 @@ class ShelfChanger extends Component {
                             <MenuItem key={index}>
                                 <option
                                     value={ camelize(menuItem.name) }
-                                    className={bookshelf === camelize(menuItem.name) ? 'current-shelf' : ''}>{menuItem.name}
+                                    className={
+                                        [bookshelf === camelize(menuItem.name) ? 'current-shelf' : '',
+                                        isFirefox ? 'current-shelf-ff' : ''].join(' ')}>{menuItem.name}
                                 </option>
                             </MenuItem>
                         ))}
                     </DropDownMenu>
-
                 }
             </div>
 		)

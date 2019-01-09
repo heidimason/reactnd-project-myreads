@@ -172,6 +172,9 @@ body, .app {
   cursor: initial;
   opacity: 0.35;
 }
+.current-shelf-ff {
+  padding-top: 8px;
+}
 
 /* book cover */
 
