@@ -1,15 +1,19 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import ListShelves from './ListShelves'
-import { BrowserRouter, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { StaticRouter } from 'react-router'
 
 describe('<ListShelves />', () => {
 	it('link to search page renders correctly', () => {
+		const context = {}
+
 		const tree = renderer
 			.create(
-				<BrowserRouter>
+				<StaticRouter
+					context={context}>
 					<Link to="/myreads/search">Add a book</Link>
-				</BrowserRouter>
+				</StaticRouter>
 			)
 			.toJSON()
 
