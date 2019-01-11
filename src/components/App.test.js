@@ -15,4 +15,6 @@ describe('<App />', () => {
 			</StaticRouter>, div
 		)
 	})
+
+	// For info on <StaticRouter> see: https://reacttraining.com/react-router/web/guides/testing
 })
