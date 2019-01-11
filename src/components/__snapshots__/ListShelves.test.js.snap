@@ -1,7 +1,0 @@
-exports[`<ListShelves /> link to search page renders correctly 1`] = `
-<a
-  href="/myreads/search"
-  onClick={[Function]}>
-  Add a book
-</a>
-`;
