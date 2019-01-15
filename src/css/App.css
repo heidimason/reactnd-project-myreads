@@ -80,19 +80,18 @@ body, .app {
 }
 .search-books-bar input {
   width: 100%;
+  padding: 15px 10px;
   border: none;
   outline: none;
 }
 @media screen and (max-width: 320px) {
   .search-books-bar input {
     font-size: 1em;
-    padding: 18px 10px 12px;
   }
 }
 @media screen and (min-width: 321px) {
   .search-books-bar input {
     font-size: 1.25em;
-    padding: 15px 10px;
   }
 }
 
