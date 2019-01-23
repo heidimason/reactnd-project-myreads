@@ -1,10 +1,28 @@
 export const camelize = str => {
-	str = str.toLowerCase()
+	const arrLowerCased = str.toLowerCase().split('');
 
-    return str.replace(/\W+(.)/g, function(match, chr) {
-        return chr.toUpperCase()
-    })
+	let camelizedStr = '';
+
+	for (let i = 0, arrLowerCasedLength = arrLowerCased.length; i < arrLowerCasedLength; i++) {
+		// Capitalize character(s) immediately following a space
+		if (arrLowerCased[i] === ' ') {
+			arrLowerCased[i + 1] = arrLowerCased[i + 1].toUpperCase();
+		} else {
+			camelizedStr += arrLowerCased[i];
+		}
+	}
+
+    return camelizedStr;
 }
+
+// RegEx version
+// export const camelize = str => {
+// 	str = str.toLowerCase()
+
+//     return str.replace(/\W+(.)/g, function(match, chr) {
+//         return chr.toUpperCase()
+//     })
+// }
 
 // Source: http://browserhacks.com/#hack-3e68270c67701bc3a7c9523ed706025e
 export const isSafari =
