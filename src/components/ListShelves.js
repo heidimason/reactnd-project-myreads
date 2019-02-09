@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ListBooks from './ListBooks'
 import { camelize } from '../utils/helpers'
 
-function ListShelves (props) {
+const ListShelves = props => {
     const { bookshelves, shelvedBooks, onMoveBook } = props
 
 	return (
