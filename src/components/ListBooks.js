@@ -1,7 +1,7 @@
 import React from 'react'
 import ShelfChanger from './ShelfChanger'
 
-function ListBooks (props) {
+const ListBooks = props => {
     const { showingBooks, onMoveBook } = props
 
     return (

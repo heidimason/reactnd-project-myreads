@@ -12,13 +12,13 @@ const styles = {
 }
 
 const LoadingAnimation = () => (
-  	<div style={styles.circularProgress}>
-    	<CircularProgress
-      		size={80}
-      		thickness={5}
-      		color={black}
-    	/>
-  	</div>
+	<div style={styles.circularProgress}>
+  	<CircularProgress
+    		size={80}
+    		thickness={5}
+    		color={black}
+  	/>
+	</div>
 )
 
 export default LoadingAnimation
