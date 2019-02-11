@@ -38,7 +38,7 @@ class SearchBooks extends Component {
                     })).then( queriedBooks => {
                         this.setState({
                             loading: false,
-                            queriedBooks: queriedBooks
+                            queriedBooks
                         })
                     })
                 } else {
