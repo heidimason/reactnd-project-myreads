@@ -84,7 +84,7 @@ class SearchBooks extends Component {
                   <LoadingAnimation />
                 }
 
-                { noResults &&
+                { noResults ?
                     <div>
                         <h3
                             className="error-no-results"
@@ -95,14 +95,14 @@ class SearchBooks extends Component {
 
                         <p className="error-no-results">{searchTerms2}</p>
                     </div>
+                    :
+                    <div className="search-books-results">
+                        <ListBooks
+                            showingBooks={queriedBooks}
+                            onMoveBook={onMoveBook}
+                        />
+                    </div>
                 }
-
-	            <div className="search-books-results">
-	            	<ListBooks
-	            		showingBooks={queriedBooks}
-	            		onMoveBook={onMoveBook}
-	            	/>
-            	</div>
           	</div>
 		)
 	}
