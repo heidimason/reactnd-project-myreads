@@ -1,9 +1,7 @@
 exports[`<ListBooks /> renders correctly when there are no items 1`] = `
-<div>
-  <div
-    className="bookshelf-books">
-    <ol
-      className="books-grid" />
-  </div>
+<div
+  className="bookshelf-books">
+  <ol
+    className="books-grid" />
 </div>
 `;
