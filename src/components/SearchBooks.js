@@ -16,7 +16,7 @@ class SearchBooks extends Component {
 	}
 
 	updateQuery = query => {
-        // Reset results from previous search
+        // Clear results from previous search
         this.setState({
             queriedBooks: [],
             noResults: null,
