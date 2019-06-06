@@ -1,4 +1,5 @@
 {
+  "name": "myreads",
   "dependencies": {
     "material-ui": "^0.20.1",
     "npm": "^5.7.1",
@@ -20,5 +21,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://hlmason.com/myreads"
+  "homepage": "https://hlmason-myreads.web.app",
+  "repository": "https://github.com/heidimason/reactnd-project-myreads"
 }
