@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "hlmason-myreads",
+    "myreads": "hlmason-myreads"
+  }
+}

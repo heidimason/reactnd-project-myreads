@@ -22,7 +22,7 @@ const ListShelves = props => {
             </ul>
 
             <div className="open-search">
-                <Link to="/myreads/search">Add a book</Link>
+                <Link to="/search">Add a book</Link>
             </div>
       	</div>
 	)
