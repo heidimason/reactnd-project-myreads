@@ -12,7 +12,7 @@ const ListBooks = props => {
     					<div className="book">
       						<div className="book-top">
         						<div className="book-cover"
-                                    style={{ backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? `${book.imageLinks.thumbnail}` : `http://via.placeholder.com/128x193?text=No%20Cover`})` }}
+                                    style={{ backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? `${book.imageLinks.thumbnail}` : `https://via.placeholder.com/128x193?text=No%20Cover`})` }}
                                     alt={book.title}>
                                 </div>
 
